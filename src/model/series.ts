@@ -1,5 +1,6 @@
 export interface Series {
   show: Show;
+  score: number;
 }
 
 export interface Show {

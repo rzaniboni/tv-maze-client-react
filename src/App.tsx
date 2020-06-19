@@ -1,40 +1,17 @@
-import React, { useState, ChangeEvent } from 'react';
-import Axios from 'axios';
-import { Series } from './model/series';
+import React from 'react';
 import TvMazeResults from './components/TvMazeResults';
+import TvMazeSearch from './components/TvMazeSearch';
+import { useTvMaze } from './hooks/useTvMaze';
+import TvMazeShowDetails from './components/TvMazeShowDetails';
 
 export const App = () => {
-  const [text, setText] = useState<string>('soprano');
-  const [result, setResult] = useState<Series[]>([]);
-
-  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  };
-
-  const searchHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    Axios.get<Series[]>(`http://api.tvmaze.com/search/shows?q=${text}`).then(
-      (res) => {
-        setResult(res.data);
-      }
-    );
-  };
-
-  const itemClickHandler = (series: Series) => {
-    window.open(series.show.url);
-  };
+  const { series, search, itemClick, details, closeModal } = useTvMaze();
 
   return (
     <div>
-      <form onSubmit={searchHandler}>
-        <input
-          type="text"
-          placeholder="Search TV Series"
-          value={text}
-          onChange={onChangeHandler}
-        />
-      </form>
-      <TvMazeResults result={result} itemClick={itemClickHandler} />
+      <TvMazeSearch search={search} />
+      <TvMazeResults result={series} itemClick={itemClick} />
+      <TvMazeShowDetails show={details} onClose={closeModal} />
     </div>
   );
 };
