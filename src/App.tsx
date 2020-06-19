@@ -1,9 +1,11 @@
 import React, { useState, ChangeEvent } from 'react';
 import Axios from 'axios';
+import { Series } from './model/series';
+import TvMazeResults from './components/TvMazeResults';
 
 export const App = () => {
   const [text, setText] = useState<string>('soprano');
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState<Series[]>([]);
 
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
@@ -11,12 +13,19 @@ export const App = () => {
 
   const searchHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    Axios.get(`http://api.tvmaze.com/search/shows?q=${text}`).then((res) => {
-      setResult(res.data);
-    });
+    Axios.get<Series[]>(`http://api.tvmaze.com/search/shows?q=${text}`).then(
+      (res) => {
+        setResult(res.data);
+      }
+    );
   };
+
+  const itemClickHandler = (series: Series) => {
+    window.open(series.show.url);
+  };
+
   return (
-    <div className="App">
+    <div>
       <form onSubmit={searchHandler}>
         <input
           type="text"
@@ -25,7 +34,7 @@ export const App = () => {
           onChange={onChangeHandler}
         />
       </form>
-      {result.length} results
+      <TvMazeResults result={result} itemClick={itemClickHandler} />
     </div>
   );
 };
