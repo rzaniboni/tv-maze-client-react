@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, ChangeEvent } from 'react';
+import Axios from 'axios';
 
-function App() {
+export const App = () => {
+  const [text, setText] = useState<string>('soprano');
+  const [result, setResult] = useState([]);
+
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
+  };
+
+  const searchHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    Axios.get(`http://api.tvmaze.com/search/shows?q=${text}`).then((res) => {
+      setResult(res.data);
+    });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={searchHandler}>
+        <input
+          type="text"
+          placeholder="Search TV Series"
+          value={text}
+          onChange={onChangeHandler}
+        />
+      </form>
+      {result.length} results
     </div>
   );
-}
+};
 
 export default App;
