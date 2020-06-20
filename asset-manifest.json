@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tv-maze-client-react/static/css/main.cce7cd49.chunk.css",
+    "main.js": "/tv-maze-client-react/static/js/main.0ccc59a8.chunk.js",
+    "main.js.map": "/tv-maze-client-react/static/js/main.0ccc59a8.chunk.js.map",
+    "runtime-main.js": "/tv-maze-client-react/static/js/runtime-main.fadd44dd.js",
+    "runtime-main.js.map": "/tv-maze-client-react/static/js/runtime-main.fadd44dd.js.map",
+    "static/js/2.3cceb7bd.chunk.js": "/tv-maze-client-react/static/js/2.3cceb7bd.chunk.js",
+    "static/js/2.3cceb7bd.chunk.js.map": "/tv-maze-client-react/static/js/2.3cceb7bd.chunk.js.map",
+    "index.html": "/tv-maze-client-react/index.html",
+    "precache-manifest.4182f506d52aa4450d81b94227e04e60.js": "/tv-maze-client-react/precache-manifest.4182f506d52aa4450d81b94227e04e60.js",
+    "service-worker.js": "/tv-maze-client-react/service-worker.js",
+    "static/css/main.cce7cd49.chunk.css.map": "/tv-maze-client-react/static/css/main.cce7cd49.chunk.css.map",
+    "static/js/2.3cceb7bd.chunk.js.LICENSE.txt": "/tv-maze-client-react/static/js/2.3cceb7bd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fadd44dd.js",
+    "static/js/2.3cceb7bd.chunk.js",
+    "static/css/main.cce7cd49.chunk.css",
+    "static/js/main.0ccc59a8.chunk.js"
+  ]
+}
