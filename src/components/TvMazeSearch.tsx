@@ -20,6 +20,7 @@ const TvMazeSearch: React.FC<TvMazeSearchProps> = ({ search }) => {
     <form onSubmit={searchHandler}>
       <input
         type="text"
+        autoFocus
         placeholder="Search TV Series"
         value={text}
         onChange={onChangeHandler}

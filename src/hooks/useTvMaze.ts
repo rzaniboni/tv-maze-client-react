@@ -16,12 +16,12 @@ export function useTvMaze() {
 
   const itemClickHandler = (series: Series) => {
     // window.open(series.show.url);
-    setDetails(series.show)
+    setDetails(series.show);
   };
 
   const closeModal = () => {
-    setDetails(null)
-  }
+    setDetails(null);
+  };
 
   return {
     series: result,

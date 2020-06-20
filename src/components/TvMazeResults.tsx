@@ -5,10 +5,13 @@ import { NoImage } from './NoImage';
 
 export interface TVMazeResultsProps {
   result: Series[];
-  itemClick: (series: Series) => void
+  itemClick: (series: Series) => void;
 }
 
-export const TvMazeResults: React.FC<TVMazeResultsProps> = ({ result, itemClick }) => {
+export const TvMazeResults: React.FC<TVMazeResultsProps> = ({
+  result,
+  itemClick,
+}) => {
   return (
     <>
       {result.length} results
@@ -19,10 +22,7 @@ export const TvMazeResults: React.FC<TVMazeResultsProps> = ({ result, itemClick 
           } = series;
           return (
             <div key={id} className={css.gridItem}>
-              <div
-                className={css.movie}
-                onClick={() => itemClick(series)}
-              >
+              <div className={css.movie} onClick={() => itemClick(series)}>
                 {image ? <img src={image?.medium} alt="" /> : <NoImage />}
 
                 <div className={css.movieText}>{name}</div>
