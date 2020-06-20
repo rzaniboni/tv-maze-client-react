@@ -7,7 +7,7 @@ export function useTvMaze() {
   const [result, setResult] = useState<Series[]>([]);
 
   const searchHandler = (text: string) => {
-    Axios.get<Series[]>(`http://api.tvmaze.com/search/shows?q=${text}`).then(
+    Axios.get<Series[]>(`https://api.tvmaze.com/search/shows?q=${text}`).then(
       (res) => {
         setResult(res.data);
       }

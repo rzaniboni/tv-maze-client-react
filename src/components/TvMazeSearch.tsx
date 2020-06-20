@@ -25,6 +25,7 @@ const TvMazeSearch: React.FC<TvMazeSearchProps> = ({ search }) => {
         value={text}
         onChange={onChangeHandler}
       />
+      <button type="submit">Submit</button>
     </form>
   );
 };
